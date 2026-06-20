@@ -2,7 +2,7 @@
 
 A Python implementation of the C-ARIMA methodology for estimating causal effects of interventions on time series data.
 
-> **Disclaimer:** This package is provided for **educational and didactic purposes only**. It comes with **no warranties** of any kind, express or implied. Use at your own risk. This is not production-grade software and should not be used for critical applications without thorough independent validation.
+> **Disclaimer:** This package is provided with no warranties of any kind, express or implied.
 
 ## Overview
 
@@ -10,7 +10,7 @@ A Python implementation of the C-ARIMA methodology for estimating causal effects
 
 > Menchetti, F., Cipollini, F., & Mealli, F. (2023). "Combining counterfactual outcomes and ARIMA models for policy evaluation." *The Econometrics Journal*.
 
-This package is a Python port of the [CausalArima R package](https://github.com/FMenchetti/CausalArima). Results have been validated against the R implementation across **30 test scenarios** covering ARIMA and SARIMA models. See [VALIDATION.md](VALIDATION.md) for details.
+This package is a Python port of the [CausalArima R package](https://github.com/FMenchetti/CausalArima). Results have been validated against the R implementation across **30 test scenarios** covering ARIMA and SARIMA models. See [VALIDATION.md](https://github.com/RobsonTigre/pycausalarima/blob/main/VALIDATION.md) for details.
 
 ## Installation
 
@@ -30,7 +30,7 @@ pip install -e ".[dev]"
 
 ### Dependencies
 
-Requires Python 3.9+ with:
+Requires Python 3.10+ with:
 - numpy, pandas, scipy
 - statsmodels, pmdarima
 - matplotlib
@@ -261,7 +261,7 @@ pytest -m dgp_sarima -v      # DGPs 9-18 (seasonal differencing)
 pytest -m dgp_extended -v    # DGPs 19-30 (edge cases)
 ```
 
-See [VALIDATION.md](VALIDATION.md) for methodology and [comparison/](comparison/) for full reports.
+See [VALIDATION.md](https://github.com/RobsonTigre/pycausalarima/blob/main/VALIDATION.md) for methodology and [comparison/](https://github.com/RobsonTigre/pycausalarima/tree/main/comparison) for full reports.
 
 ## Validation Summary
 
@@ -281,7 +281,7 @@ Cross-validation against the R `CausalArima` package across 30 Data Generating P
 
 ## Known Limitations
 
-- **SD tolerance for seasonal models:** Standard deviations for seasonal and differenced ARIMA models may differ from R by up to 20% due to sigma2 estimation method differences (Python state-space MLE vs R CSS-ML). Point estimates and p-values match closely. See [VALIDATION.md](VALIDATION.md) for details.
+- **SD tolerance for seasonal models:** Standard deviations for seasonal and differenced ARIMA models may differ from R by up to 20% due to sigma2 estimation method differences (Python state-space MLE vs R CSS-ML). Point estimates and p-values match closely. See [VALIDATION.md](https://github.com/RobsonTigre/pycausalarima/blob/main/VALIDATION.md) for details.
 - **Bootstrap compatibility:** Bootstrap simulation uses the statsmodels `simulate()` API, which may change in future statsmodels versions. Normal-based inference is unaffected.
 - Very short time series (< 20 observations) may produce unstable estimates
 
@@ -315,5 +315,5 @@ This is a Python port of the [CausalArima R package](https://github.com/FMenchet
 
 - [Original R package](https://github.com/FMenchetti/CausalArima)
 - [Paper on arXiv](https://arxiv.org/abs/2103.06740)
-- [Validation documentation](VALIDATION.md)
+- [Validation documentation](https://github.com/RobsonTigre/pycausalarima/blob/main/VALIDATION.md)
 - [YouTube webinar](https://www.youtube.com/watch?v=RjMEtv3C5S0) on C-ARIMA methodology
